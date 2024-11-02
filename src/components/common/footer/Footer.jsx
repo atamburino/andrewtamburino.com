@@ -4,7 +4,7 @@ import './Footer.css';
 class Footer extends Component {
   render() {
     return(
-      <section>
+      <section className="main-footer">
         Andrew's site / This is a footer
       </section>
     )
