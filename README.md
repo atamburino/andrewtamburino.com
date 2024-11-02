@@ -1,1 +1,1 @@
-[andrewtamburino.com](https://github.com/atamburino/andrewtamburino) © 2024 by [Andrew Tamburino](https://github.com/atamburino) is licensed under [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1)
+andrewtamburino.com © 2024 by Andrew Tamburino is licensed under Creative Commons Attribution-NonCommercial 4.0 International. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc/4.0/
