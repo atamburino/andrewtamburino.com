@@ -1,0 +1,29 @@
+.main-nav ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #1A1B1E;
+}
+
+.main-nav li {
+  height: 50px;
+}
+
+.main-nav a {
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: #34363C;
+  color: #6B4EE6;
+}
