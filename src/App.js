@@ -1,7 +1,14 @@
 import React, { Component } from "react";
-import { Navbar } from "./components/common";
-import { Footer } from "./components/common";
 import HomePage from "./pages/homepage/HomePage";
+import { 
+  Contact,
+  Footer,
+  Intro,
+  Navbar,
+  Portfolio,
+  Timeline,
+  Title
+} from "./components/common";
 
 import "./App.css";
 
@@ -11,6 +18,10 @@ class App extends Component {
     return(
       <div>
         <Navbar />
+        <Intro />
+				<Portfolio />
+				<Timeline />
+				<Contact />
         <HomePage />
         <Footer />
       </div>

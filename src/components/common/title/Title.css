@@ -1,0 +1,15 @@
+.title {
+    font-size: 1.5rem;  /* text-2xl */
+    font-weight: 700;   /* font-bold */
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 4px;
+    margin-bottom: 1.25rem;  /* mb-5 */
+    color: rgb(28, 25, 23);  /* text-stone-900 */
+ }
+ 
+ @media (prefers-color-scheme: dark) {
+    .title {
+       color: white;  /* dark:text-white */
+    }
+ }
