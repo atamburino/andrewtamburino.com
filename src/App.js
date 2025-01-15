@@ -7,7 +7,7 @@ import About from './components/About';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 const theme = createTheme({
   palette: {
@@ -37,7 +37,7 @@ function App() {
           <Projects />
           <Contact />
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </ThemeProvider>
   );
