@@ -5,7 +5,7 @@ import styles from './App.module.css';
 import Header from './components/Header';
 import About from './components/About';
 import Hero from './components/Hero';
-// import Projects from './components/Projects';
+import Projects from './components/Projects';
 // import Contact from './components/Contact';
 // import Footer from './components/Footer';
 
@@ -34,8 +34,8 @@ function App() {
         <main>
           <Hero />
           <About />
-          {/* <Projects />
-          <Contact /> */}
+          <Projects />
+          {/* <Contact /> */}
         </main>
         {/* <Footer /> */}
       </div>
