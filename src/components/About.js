@@ -18,7 +18,7 @@ function About() {
             My Journey
           </Typography>
           <Typography variant="body1">
-          Hello! I’m Andrew Tamburino, a full stack developer who builds fast, user-friendly apps with a focus on great customer experiences. When I’m not coding, you’ll find me out on the disc golf course or diving into the latest MMORPG. Thanks for stopping by! </Typography>
+            When I’m not coding, you’ll find me out on the disc golf course or diving into the latest MMORPG. Thanks for stopping by! </Typography>
         </CardContent>
       </Card>
     </AboutContainer>
