@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: black;
+    /* Optional: change text color so it’s visible on black */
+    color: white;
+  }
+  
