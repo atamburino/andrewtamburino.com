@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Chat from './components/Chat'
 
 const theme = createTheme({
   palette: {
@@ -32,10 +33,11 @@ function App() {
       <div className={styles.app}>
         <Header />
         <main>
-          <Hero />
+          <Chat />
+          {/* <Hero />
           <About />
           <Projects />
-          <Contact />
+          <Contact /> */}
         </main>
         <Footer />
       </div>
