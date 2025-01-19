@@ -31,7 +31,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={styles.app}>
-        <Header />
+        {/* <Header /> */}
         <main>
           <Chat />
           {/* <Hero />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSpring, animated } from 'react-spring';
 import { MessageCircle, ThumbsUp, Heart, Smile, Star } from 'lucide-react';
 
 const YOUR_INFO = {
@@ -7,7 +8,7 @@ const YOUR_INFO = {
   threads: "tamburino.codes",
   email: "Coming Soon",
   company: "n/a",
-  initial: "Andy"
+  initial: "AT"
 };
 
 const getCurrentTimeMessage = () => {
@@ -38,21 +39,15 @@ const reactions = [
 ];
 
 const MessageBubble = ({ message, index }) => {
-  const bubbleRef = useRef(null);
   const [showReactions, setShowReactions] = useState(false);
   const [messageReactions, setMessageReactions] = useState([]);
   
-  useEffect(() => {
-    const element = bubbleRef.current;
-    element.style.transform = 'translateX(-20px)';
-    element.style.opacity = '0';
-    
-    requestAnimationFrame(() => {
-      element.style.transition = 'transform 800ms ease-out, opacity 800ms ease-out';
-      element.style.transform = 'translateX(0)';
-      element.style.opacity = '1';
-    });
-  }, []);
+  const springProps = useSpring({
+    opacity: 1,
+    transform: 'translateX(0px)',
+    from: { opacity: 0, transform: 'translateX(-20px)' },
+    delay: index * 200
+  });
 
   const handleReaction = (reaction) => {
     setMessageReactions(prev => [...prev, reaction]);
@@ -60,13 +55,12 @@ const MessageBubble = ({ message, index }) => {
   };
 
   return (
-    <div className="relative group" ref={bubbleRef}>
+    <animated.div style={springProps} className="relative group mb-4">
       <div 
-        className="max-w-[80%] bg-white dark:bg-gray-700 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300"
+        className="max-w-full bg-gray-800 text-white rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300"
         onDoubleClick={() => setShowReactions(prev => !prev)}
       >
         <span 
-          className="text-gray-800 dark:text-gray-200"
           dangerouslySetInnerHTML={{ __html: message }}
         />
         
@@ -75,7 +69,7 @@ const MessageBubble = ({ message, index }) => {
             {messageReactions.map((reaction, i) => (
               <span 
                 key={i}
-                className={`${reaction.color} bg-gray-100 dark:bg-gray-600 p-1 rounded-full transform transition-transform duration-300`}
+                className={`${reaction.color} bg-gray-700 p-1 rounded-full transform transition-transform duration-300`}
               >
                 <reaction.icon size={16} />
               </span>
@@ -85,7 +79,7 @@ const MessageBubble = ({ message, index }) => {
       </div>
 
       {showReactions && (
-        <div className="absolute -top-12 left-0 bg-white dark:bg-gray-700 rounded-full shadow-lg p-2 flex gap-2">
+        <div className="absolute -top-12 left-0 bg-gray-700 rounded-full shadow-lg p-2 flex gap-2">
           {reactions.map((reaction, i) => (
             <button
               key={i}
@@ -97,12 +91,12 @@ const MessageBubble = ({ message, index }) => {
           ))}
         </div>
       )}
-    </div>
+    </animated.div>
   );
 };
 
 const TypingIndicator = () => (
-  <div className="flex space-x-2 max-w-[80%] bg-white dark:bg-gray-700 rounded-lg p-3 shadow-sm">
+  <div className="flex space-x-2 max-w-full bg-gray-800 rounded-lg p-3 shadow-sm mb-4">
     <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" />
     <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce delay-200" />
     <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce delay-400" />
@@ -113,23 +107,12 @@ const Chat = () => {
   const [visibleMessages, setVisibleMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
-  const headerRef = useRef(null);
   
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
-    const element = headerRef.current;
-    element.style.transform = 'translateY(-20px)';
-    element.style.opacity = '0';
-    
-    requestAnimationFrame(() => {
-      element.style.transition = 'transform 800ms ease-out, opacity 800ms ease-out';
-      element.style.transform = 'translateY(0)';
-      element.style.opacity = '1';
-    });
-
     scrollToBottom();
   }, [visibleMessages]);
 
@@ -152,16 +135,15 @@ const Chat = () => {
     showMessage(0);
   }, []);
 
-  return (
-    <div className="w-full max-w-2xl mx-auto h-screen p-4 bg-gray-50 dark:bg-gray-900">
-      <div 
-        ref={headerRef}
-        className="flex items-center gap-2 p-4 bg-white dark:bg-gray-800 rounded-t-lg shadow-sm"
-      >
+  const springProps = useSpring({
+    opacity: 1,
+    transform: 'translateY(0px)',
+    from: { opacity: 0, transform: 'translateY(-20px)' }
+  });
 
-      </div>
-      
-      <div className="h-[calc(100vh-8rem)] overflow-y-auto p-4 space-y-4 bg-gray-100 dark:bg-gray-800">
+  return (
+    <div className="w-full min-h-screen bg-black text-white p-4 overflow-y-auto">
+      <animated.div style={springProps} className="max-w-3xl mx-auto">
         {visibleMessages.map((message, index) => (
           <MessageBubble 
             key={index} 
@@ -172,9 +154,10 @@ const Chat = () => {
         
         {isTyping && <TypingIndicator />}
         <div ref={messagesEndRef} />
-      </div>
+      </animated.div>
     </div>
   );
 };
 
 export default Chat;
+
