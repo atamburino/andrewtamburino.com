@@ -138,15 +138,15 @@
   
   @media (prefers-color-scheme: dark) {
     .chat-container {
-      background-color: #111827;
+      background-color: #0a0c03b6;
     }
   
     .chat-header {
-      background-color: #1f2937;
+      background-color: #0a0c03b6;
     }
   
     .messages-container {
-      background-color: #1f2937;
+      background-color: #0a0c03b6;
     }
   
     .message-bubble {
