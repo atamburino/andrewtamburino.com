@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chat from './components/Chat'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const theme = createTheme({
   palette: {
@@ -32,6 +33,7 @@ function App() {
       <CssBaseline />
       <div className={styles.app}>
         {/* <Header /> */}
+        <SpeedInsights />
         <main>
           <Chat />
           {/* <Hero />
