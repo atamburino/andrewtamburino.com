@@ -148,6 +148,23 @@ const Chat = ({ onComplete }) => {
       <div ref={headerRef} className="chat-header">
         <MessageCircle size={24} />
         <span>Chat with {YOUR_INFO.name}</span>
+        <button
+          onClick={onComplete}
+          style={{
+            marginLeft: 'auto',
+            background: 'none',
+            border: 'none',
+            color: 'rgba(255, 255, 255, 0.5)',
+            fontSize: '0.8rem',
+            cursor: 'pointer',
+            padding: '4px 8px',
+            transition: 'color 0.2s ease',
+          }}
+          onMouseEnter={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.8)'}
+          onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.5)'}
+        >
+          Skip →
+        </button>
       </div>
 
       <div className="messages-container">

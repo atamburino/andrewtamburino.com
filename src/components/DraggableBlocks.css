@@ -1,0 +1,28 @@
+.layout {
+  margin: 0 auto;
+}
+
+.grid-item {
+  cursor: move;
+  transition: transform 0.2s ease;
+}
+
+.grid-item:hover {
+  transform: scale(1.02);
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.react-grid-item > .react-resizable-handle {
+  display: none;
+}
+
+.react-grid-item.cssTransforms {
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+} 
