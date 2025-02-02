@@ -97,9 +97,10 @@ const TypingIndicator = () => (
   </div>
 )
 
-const Chat = () => {
+const Chat = ({ onComplete }) => {
   const [visibleMessages, setVisibleMessages] = useState([])
   const [isTyping, setIsTyping] = useState(false)
+  const [showViewSiteButton, setShowViewSiteButton] = useState(false)
   const messagesEndRef = useRef(null)
   const headerRef = useRef(null)
 
@@ -109,12 +110,11 @@ const Chat = () => {
 
   useEffect(() => {
     const element = headerRef.current
-    element.style.transform = "translateY(-20px)"
+    element.style.transform = "translateY(0)"
     element.style.opacity = "0"
 
     requestAnimationFrame(() => {
-      element.style.transition = "transform 800ms ease-out, opacity 800ms ease-out"
-      element.style.transform = "translateY(0)"
+      element.style.transition = "opacity 800ms ease-out"
       element.style.opacity = "1"
     })
 
@@ -123,7 +123,10 @@ const Chat = () => {
 
   useEffect(() => {
     const showMessage = async (index) => {
-      if (index >= messages.length) return
+      if (index >= messages.length) {
+        setShowViewSiteButton(true);
+        return;
+      }
 
       setIsTyping(true)
 
@@ -153,6 +156,29 @@ const Chat = () => {
         ))}
 
         {isTyping && <TypingIndicator />}
+        
+        {showViewSiteButton && (
+          <div className="view-site-button-container" style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <button
+              onClick={onComplete}
+              style={{
+                padding: '12px 24px',
+                fontSize: '1rem',
+                backgroundColor: '#ffffff',
+                color: '#000000',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease',
+              }}
+              onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+            >
+              View Full Site →
+            </button>
+          </div>
+        )}
+        
         <div ref={messagesEndRef} />
       </div>
     </div>
