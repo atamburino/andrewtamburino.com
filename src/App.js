@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import styles from './App.module.css';
@@ -28,20 +28,27 @@ const theme = createTheme({
 });
 
 function App() {
+  const [showFullSite, setShowFullSite] = useState(false);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={styles.app}>
-        {/* <Header /> */}
-        <SpeedInsights />
-        <main>
-          <Chat />
-          {/* <Hero />
-          <About />
-          <Projects />
-          <Contact /> */}
-        </main>
-        <Footer />
+        {showFullSite ? (
+          <>
+            <Header />
+            <SpeedInsights />
+            <main>
+              <Hero />
+              <About />
+              <Projects />
+              <Contact />
+            </main>
+            <Footer />
+          </>
+        ) : (
+          <Chat onComplete={() => setShowFullSite(true)} />
+        )}
       </div>
     </ThemeProvider>
   );
