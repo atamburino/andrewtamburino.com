@@ -148,6 +148,7 @@ const Chat = ({ onComplete }) => {
       <div ref={headerRef} className="chat-header">
         <MessageCircle size={24} />
         <span>Chat with {YOUR_INFO.name}</span>
+        {/* Skip button commented out
         <button
           onClick={onComplete}
           style={{
@@ -165,6 +166,7 @@ const Chat = ({ onComplete }) => {
         >
           Skip →
         </button>
+        */}
       </div>
 
       <div className="messages-container">
@@ -174,6 +176,7 @@ const Chat = ({ onComplete }) => {
 
         {isTyping && <TypingIndicator />}
         
+        {/* View site button commented out
         {showViewSiteButton && (
           <div className="view-site-button-container" style={{ textAlign: 'center', marginTop: '2rem' }}>
             <button
@@ -195,6 +198,7 @@ const Chat = ({ onComplete }) => {
             </button>
           </div>
         )}
+        */}
         
         <div ref={messagesEndRef} />
       </div>
