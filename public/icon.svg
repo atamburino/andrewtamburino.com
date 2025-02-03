@@ -1,0 +1,29 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#000000"/>
+  
+  <!-- Circular background for initials -->
+  <circle cx="256" cy="256" r="200" fill="#111111"/>
+  
+  <!-- Decorative rings -->
+  <circle cx="256" cy="256" r="190" stroke="white" stroke-width="2" stroke-opacity="0.1"/>
+  <circle cx="256" cy="256" r="180" stroke="white" stroke-width="1" stroke-opacity="0.05"/>
+  
+  <!-- AT monogram -->
+  <g transform="translate(256 256)">
+    <!-- A -->
+    <path d="M-80 100 L-20 -100 L40 100 M-60 40 L20 40" 
+          stroke="white" 
+          stroke-width="24" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          fill="none"/>
+    <!-- T -->
+    <path d="M60 -100 L60 100 M0 -100 L120 -100" 
+          stroke="white" 
+          stroke-width="24" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          fill="none"/>
+  </g>
+</svg> 
