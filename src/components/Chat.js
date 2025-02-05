@@ -3,7 +3,7 @@ import { MessageCircle, ThumbsUp, Heart, Smile, Star } from "lucide-react"
 import "./Chat.css"
 
 const YOUR_INFO = {
-  name: "Andy Tambruino",
+  name: "Andy Tamburino",
   github: "atamburino",
   threads: "tamburino.codes",
   email: "andy@tamburino.codes",
